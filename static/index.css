@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    height: 100vh;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.btn-expandir img {
+    width: 70px;
+    cursor: pointer;
+}
+
+.menu-lateral {
+    padding-top: 20px;
+    padding-left: 30px;
+    background-color: rgb(16, 18, 19);
+    width: 70px;
+    height: 100%;
+    border-right: 2px solid rgb(136, 6, 78);
+    transition: .5s;
+    overflow: hidden;
+}
+
+.menu-lateral.expandir {
+    width: 300px;
+}
+
+.item-menu {
+    padding: 35px; 
+    transition: 0.7s;
+    padding-left: 5px;
+}
+
+.item-menu a {
+    color: azure;
+    font-family: "Quintessential", serif;
+    font-weight: 500;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    line-height: 30px;
+}
+
+.item-menu img {
+    width: 47px;
+}
+
+.item-menu span {
+    padding: 0 20px;
+}
+
+.item-menu:hover {
+    background-color: rgb(228, 8, 129);
+}
+
+.item-menu.ativo, .item-menu.ativo a {
+    background-color: rgb(228, 8, 129);
+}
