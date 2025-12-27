@@ -69,3 +69,7 @@ nav {
 .item-menu.ativo, .item-menu.ativo a {
     background-color: rgb(228, 8, 129);
 }
+
+.grafico-container1 {
+    padding-left: 150px;
+}
