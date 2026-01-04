@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Linha do Tempo - Peste Negra{% endblock %}
+
+{% block conteudo %}
+    
+    <h2 class="title-info" style="color: rgb(228, 8, 129); padding-left: 150px; padding-top: 20px;">
+        Linha do Tempo da Mortalidade
+    </h2>
+
+    <p class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+        Os números de mortos da Peste Negra não são exatos, mas sim estimativas baseadas em cálculos indiretos.
+    </p>
+
+    <p class="description-info" style="font-weight: 700; color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+        Isso ocorre por três motivos principais:
+    </p> 
+    
+    <br>
+
+    <ul>
+        <li class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+            Falta de Registros: No século XIV, não existiam censos ou institutos de estatística. Os poucos registros eram feitos por igrejas, que paravam de anotar as mortes quando os próprios padres morriam ou o caos se instalava.
+        </li>
+        <li class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+            Exagero dos Cronistas: Os escritores da época não tinham rigor matemático. Eles usavam números como "100 mil mortos" de forma poética para expressar que "muita gente morreu", sem contagem real.
+        </li>
+        <li class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+            Confusão de Causas: Como não havia exames médicos, mortes causadas por fome, tifo ou gripe eram todas somadas à conta da peste, o que gera uma margem de erro enorme.
+        </li>
+    </ul>    
+
+    <p class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px; padding-bottom: 10px;"> 
+        Em suma, os números atuais são deduções feitas por historiadores que comparam a arrecadação de impostos e registros de terras antes e depois da epidemia. 
+        <br> 
+    </p>
+
+    <div class="grafico-container1">
+        {{ grafico | safe }}
+    </div>
+
+{% endblock %}

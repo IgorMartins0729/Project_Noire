@@ -1,61 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% block title %} Home {% endblock %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-</head>
+{% block conteudo %}
 
-<body>
-    <nav class="menu-lateral">
-        <div class="btn-expandir" id="btn-exp">
-            <img src="{{ url_for('static', filename='images/majesticons_menu.svg') }}" alt="">
-        </div>
-
-        <ul>
-            <li class="item-menu">
-                <a href="#">
-                    <img class="icon" src="{{ url_for('static', filename='images/material-symbols_skull.svg') }}" alt="">
-                    <span class="txt-link">Linha do Tempo da Mortalidade</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="">
-                    <img class="icon" src="{{ url_for('static', filename='images/Group 1.svg') }}" alt="">
-                    <span class="txt-link">Comparação da Mortalidade por País</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="">
-                    <img class="icon" src="{{ url_for('static', filename='images/Group 2.svg') }}" alt="">
-                    <span class="txt-link">Proporção de Sobreviventes</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="">
-                    <img class="icon" src="{{ url_for('static', filename='images/fa-solid_bacterium.svg') }}" alt="">
-                    <span class="txt-link">Letalidade por Tipo de Peste</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="">
-                    <img class="icon" src="{{ url_for('static', filename='images/Group.png') }}" alt="">
-                    <span class="txt-link">Propagação Geográfica (Mapa)</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <h2 style="color: aliceblue;">Linha do Tempo da Mortalidade</h2>
-
-   <div class="grafico-container1">
-    {{ grafico | safe }}
-    </div>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
-
-</html>
+{% endblock %}

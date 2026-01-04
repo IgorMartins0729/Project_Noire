@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    list-style: none;
-    text-decoration: none;
     margin: 0;
     padding: 0;
 }
@@ -16,6 +15,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 
 .btn-expandir img {
@@ -52,6 +52,7 @@ nav {
     display: flex;
     align-items: center;
     line-height: 30px;
+    text-decoration: none;
 }
 
 .item-menu img {
@@ -72,4 +73,13 @@ nav {
 
 .grafico-container1 {
     padding-left: 150px;
+    z-index: 0;
+}
+
+.title-info {
+    font-family: "Montserrat", sans-serif;
+}
+
+.description-info {
+    font-family: "Montserrat", sans-serif;
 }

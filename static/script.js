@@ -1,7 +1,7 @@
 var menuItem = document.querySelectorAll('.item-menu')
 
 function selectLink(event){
-    event.preventDefault() // vamo impedir reload da pagina
+    //event.preventDefault() // vamo impedir reload da pagina
     
     menuItem.forEach((item)=>
         item.classList.remove('ativo')

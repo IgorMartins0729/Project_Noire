@@ -7,6 +7,10 @@ import os
 #rotas
 @app.route("/")
 def homepage():
+    return render_template("index.html")
+
+@app.route("/linha-do-tempo")
+def linha_tempo():
     #lendo um arquivo excel e salvando na variavel dataframe
     df = pd.read_excel("dadosmortesporano.xlsx")
 
@@ -42,4 +46,4 @@ def homepage():
     
 
     # renderizar o template pasando grafico
-    return render_template("./index.html", grafico=grafico)
+    return render_template("line.html", grafico=grafico)
