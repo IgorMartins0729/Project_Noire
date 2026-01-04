@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Comparação de Mortalidade por Países da Europa - Peste Negra{% endblock %}
+
+{% block conteudo %}
+    
+    <h2 class="title-info" style="color: #002aff; padding-left: 150px; padding-top: 20px;">
+        Comparação de Mortalidade por Países da Europa
+    </h2>
+
+    <p class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+        A Peste Negra não atingiu a Europa de forma uniforme. A taxa de mortalidade variou drasticamente dependendo de três fatores principais:
+    </p>
+
+    <p class="description-info" style="font-weight: 700; color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+        densidade populacional, rotas comerciais e a rapidez nas medidas de isolamento.
+    </p> 
+    
+    <br>
+
+    <ul>
+        <li class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+            O Sul (Itália e França): Sendo a porta de entrada dos navios comerciais vindos do Oriente, cidades portuárias como Veneza e Marselha foram as primeiras atingidas. A superpopulação dessas áreas facilitou o contágio explosivo, dizimando cerca de 60% dos habitantes.
+        </li>
+        <li class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+            O Norte (Escandinávia): Apesar do clima frio, a Noruega sofreu uma das maiores perdas proporcionais (65%). A praga chegou através de um navio mercante à deriva em Bergen e, devido ao isolamento das comunidades rurais, a doença encontrou uma população sem qualquer imunidade ou rota de fuga.
+        </li>
+        <li class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px;">
+            A Exceção (Polônia e Milão): O gráfico mostra quedas bruscas na mortalidade em certas regiões. A Polônia, por exemplo, teve taxas muito menores porque o rei Casimiro, o Grande, ordenou o fechamento das fronteiras e impôs quarentenas rígidas, limitando drasticamente o fluxo de viajantes infectados.
+        </li>
+    </ul>    
+
+    <p class="description-info" style="color: aliceblue; padding-left: 150px; line-height: 25px; padding-top: 10px; padding-bottom: 10px;"> 
+        Veja em gráficos:
+        <br> 
+    </p>
+
+    <div class="grafico-container1">
+        {{ grafico | safe }}
+    </div>
+
+{% endblock %}

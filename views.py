@@ -17,7 +17,7 @@ def linha_tempo():
     #tem que deixar ano em string para nao virar 1347,5
     df['ano'] = df['ano'].astype(str)
 
-    # criar grafico interativo e usa os dados do DataFrame para criar grafico com x e y
+    # criar grafico interativo de linhas  e usa os dados do DataFrame para criar grafico com x e y
     fig = px.line(
         df,
         x="ano",
@@ -27,7 +27,7 @@ def linha_tempo():
     )
 
     #vou mudar a cor da linha do grafico
-    fig.update_traces(line_color='rgb(228, 8, 129)')
+    fig.update_traces(line_color='#FF0000')
 
     fig.update_layout(
         separators=",."
@@ -47,3 +47,45 @@ def linha_tempo():
 
     # renderizar o template pasando grafico
     return render_template("line.html", grafico=grafico)
+
+@app.route("/comparacao-paises")
+def comparison_country():
+    # --- 1. SEGURANÇA DE ARQUIVO ---
+    # Garante que ele ache o Excel na mesma pasta do script
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    caminho_arquivo = os.path.join(base_path, "paisesmortalidade.xlsx")
+
+    df = pd.read_excel(caminho_arquivo, engine='openpyxl')
+
+    #tem que multiplicar por 100 para nao ficar 0.65 e sim 65%
+    coluna_mortalidade = "Estimativas de Mortalidade (aproximada)"
+    df[coluna_mortalidade] = df[coluna_mortalidade] * 100
+
+    #grafico de coluna para gerar é px.bar
+    fig = px.bar(
+        df,
+        x="Países",
+        y="Estimativas de Mortalidade (aproximada)",
+        title="Comparação da Mortalidade por Países da Europa",
+        template="plotly_dark",
+        text="Estimativas de Mortalidade (aproximada)"
+    )
+
+    fig.update_traces(
+        marker_color='#002aff',
+        textposition='outside',
+        texttemplate='%{text:.1f}%'
+    )
+
+    fig.update_layout(
+        yaxis_range=[0,100]
+    )
+
+    grafico = fig.to_html(
+        full_html=False,
+        include_plotlyjs="cdn"
+    )
+
+    return render_template("comparison.html",grafico=grafico)
+
+

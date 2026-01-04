@@ -29,7 +29,7 @@ nav {
     background-color: rgb(16, 18, 19);
     width: 70px;
     height: 100%;
-    border-right: 2px solid rgb(136, 6, 78);
+    border-right: 2px solid rgb(88, 83, 86);
     transition: .5s;
     overflow: hidden;
 }
@@ -64,11 +64,11 @@ nav {
 }
 
 .item-menu:hover {
-    background-color: rgb(228, 8, 129);
+    background-color: rgb(186, 186, 186);
 }
 
 .item-menu.ativo, .item-menu.ativo a {
-    background-color: rgb(228, 8, 129);
+    background-color: rgb(186, 186, 186);
 }
 
 .grafico-container1 {
