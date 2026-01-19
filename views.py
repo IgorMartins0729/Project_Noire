@@ -88,4 +88,39 @@ def comparison_country():
 
     return render_template("comparison.html",grafico=grafico)
 
+@app.route("/proporcao-sobreviventes")
+def sobreviventes():
+    #dessa vez sem excel pois numeros são mto variados
+    #armazenar tudo numa variavel data e depois jogar no datafrmae
+    data = {
+            "Status": ["Mortos", "Sobreviventes"],
+            "Média (Milhões)": [37.5, 42.5],
+            "Margem de Erro": [12.5, 12.5]
+    }
+
+    df = pd.DataFrame(data)    
+
+    fig = px.bar(
+        df,
+        x="Status",
+        y="Média (Milhões)",
+        error_y="Margem de Erro", #margem de erro no eixo y
+        color="Status",
+        title="Europa: Mortos vs Sobreviventes (com estimativa de erro)",
+        template="plotly_dark",
+        text_auto=True,
+        color_discrete_map={"Mortos": "#ff5a5f", "Sobreviventes": "#00a699"}
+    )
+
+    fig.update_layout(
+        showlegend=False,
+        yaxis_title="População (Milhões)"
+    )
+
+    grafico = fig.to_html(
+        full_html=False,
+        include_plotlyjs="cdn"
+    )
+
+    return render_template("sobreviventes.html",grafico=grafico)
 

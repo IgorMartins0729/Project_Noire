@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Comparação de Mortalidade por Países da Europa - Peste Negra{% endblock %}
+
+{% block conteudo %}
+    
+    <div class="pergaminho">
+
+        <h2 class="title-info">
+            Europeus: Mortos vs Sobreviventes
+        </h2>
+
+        <p class="description-info">
+            Estima-se que a população europeia, que girava em torno de 80 milhões de habitantes, sofreu uma redução abrupta de 30% a 60%.
+        </p>
+
+        <p class="description-info">
+            As visualizações abaixo comparam a magnitude dessas perdas humanas em relação aos sobreviventes que restaram para reconstruir uma sociedade profundamente transformada.
+        </p> 
+        
+        <br>
+
+        <div style="text-align: center; margin: 20px 0;">
+            
+            <img src="{{ url_for('static', filename='images/10pessoas.jpg') }}" alt="Visualização 4 mortos para 6 vivos" style="width: 80%; border: 2px solid #5c4a35;">
+        </div>
+
+        <br>
+
+        <p class="description-info" style="font-weight: bold; text-align: center;"> 
+            Veja em gráficos:
+        </p>
+
+        <div class="grafico-container1">
+            {{ grafico | safe }}
+        </div>
+
+    </div> 
+    {% endblock %}
