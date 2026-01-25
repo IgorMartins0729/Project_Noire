@@ -1,7 +1,64 @@
 {% extends 'base.html' %}
 
-{% block title %} Home {% endblock %}
+{% block title %}Home - Project Noire{% endblock %}
 
 {% block conteudo %}
+    
+    <div class="pergaminho">
+
+        <div style="text-align: center; border-bottom: 2px solid #5c4a35; margin-bottom: 30px; padding-bottom: 20px;">
+            <h1 style="font-family: 'Quintessential', cursive; font-size: 3.5rem; color: #3e2b18; margin-bottom: 10px;">
+                Project Noire
+            </h1>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; font-weight: bold;">
+                A Ciência de Dados por trás da Peste Negra
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 30px;">
+            <img src="{{ url_for('static', filename='images/capa.png') }}" alt="Mesa de estudos medieval" style="width: 65%;">
+        </div>
+
+        <h2 class="title-info" style="font-size: 2rem;">O Que é Este Projeto?</h2>
+        
+        <p class="description-info">
+            Entre 1347 e 1351, a humanidade enfrentou sua hora mais sombria. A Peste Negra não foi apenas uma doença; foi um evento de extinção em massa que reescreveu a estrutura social, econômica e religiosa da Europa.
+        </p>
+        
+        <p class="description-info">
+            Este dashboard interativo deixa de lado os mitos para focar nos <strong>fatos e números</strong>. Utilizamos tecnologia moderna de visualização de dados para mapear a propagação, quantificar a mortalidade e analisar a letalidade desta pandemia histórica.
+        </p>
+
+        <br>
+
+        <h3 style="font-family: 'Quintessential', cursive; color: #8a1c1c; text-align: center; margin-bottom: 20px; font-size: 1.8rem;">
+            Comece sua Investigação:
+        </h3>
+
+        <div class="home-grid">
+            
+            <a href="{{ url_for('linha_tempo') }}" class="home-card">
+                <img src="{{ url_for('static', filename='images/material-symbols_skull.svg') }}" alt="">
+                <span>Linha do Tempo</span>
+            </a>
+
+            <a href="{{ url_for('comparison_country') }}" class="home-card">
+                <img src="{{ url_for('static', filename='images/Group 1.svg') }}" alt="">
+                <span>Comparação por Países</span>
+            </a>
+            
+            <a href="{{ url_for('letalidade') }}" class="home-card">
+                <img src="{{ url_for('static', filename='images/fa-solid_bacterium.svg') }}" alt="">
+                <span>Taxas de Letalidade</span>
+            </a>
+
+            <a href="{{ url_for('mapa') }}" class="home-card">
+                <img src="{{ url_for('static', filename='images/Group.png') }}" alt="">
+                <span>Mapa da Propagação</span>
+            </a>
+
+        </div>
+
+    </div>
 
 {% endblock %}

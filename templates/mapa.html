@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Propagação Geográfica - Peste Negra{% endblock %}
+
+{% block conteudo %}
+    
+    <div class="pergaminho" style="max-width: 95%; width: 95%;">
+
+        <h2 class="title-info">
+            O Rastro da Destruição
+        </h2>
+
+        <p class="description-info">
+            Este mapa interativo demonstra a cronologia da peste. Observe como a doença viajou do Sul (Mediterrâneo, 1347) para o Norte e Leste (Rússia, 1351) ao longo de quatro anos.
+        </p>
+        
+        <p class="description-info" style="font-size: 0.9rem; margin-bottom: 20px;">
+            <i>Passe o mouse sobre os países para ver detalhes.</i>
+        </p>
+
+        <div style="border: 4px solid #5c4a35; border-radius: 4px; overflow: hidden;">
+            {{ grafico | safe }}
+        </div>
+
+        <p class="description-info" style="margin-top: 20px; font-size: 0.8rem; text-align: center;">
+            *Nota: O mapa utiliza fronteiras atuais para facilitar a localização geográfica, mas representa regiões históricas do século XIV.
+        </p>
+
+    </div>
+
+{% endblock %}

@@ -124,3 +124,83 @@ def sobreviventes():
 
     return render_template("sobreviventes.html",grafico=grafico)
 
+@app.route("/letalidade")
+def letalidade():
+    return render_template("letalidade.html")
+
+import plotly.express as px
+import pandas as pd
+
+@app.route("/mapa")
+def mapa():
+    # 1. CRIAR OS DADOS (Simulando uma tabela Excel)
+    # Usamos os códigos ISO-3 (3 letras) para o Plotly achar os países fácil
+    dados_peste = {
+        "Pais": ["Itália", "França", "Espanha", "Reino Unido", "Alemanha", "Noruega", "Suécia", "Polônia", "Rússia", "Turquia", "Grécia", "Egito"],
+        "Codigo": ["ITA", "FRA", "ESP", "GBR", "DEU", "NOR", "SWE", "POL", "RUS", "TUR", "GRC", "EGY"],
+        "Ano": [1347, 1348, 1348, 1348, 1349, 1349, 1350, 1351, 1351, 1347, 1347, 1347],
+        "Descricao": [
+            "Ponto de entrada (Sicília e Gênova). Devastação total.",
+            "Atingida via Marselha. Paris perdeu metade da população.",
+            "Chegou via portos do Mediterrâneo.",
+            "Entrou por Weymouth. Dizimou Londres.",
+            "Avançou pelo Reno. Pogroms contra judeus aumentaram.",
+            "Chegou por um navio fantasma em Bergen.",
+            "Atingida tardiamente via Noruega.",
+            "Menor impacto devido a quarentenas rígidas do Rei Casimiro.",
+            "O fim da linha. Atingida por último.",
+            "Constantinopla foi um dos primeiros focos.",
+            "Espalhou-se pelas ilhas rapidamente.",
+            "Alexandria foi atingida quase junto com a Itália."
+        ]
+    }
+
+    df = pd.DataFrame(dados_peste)
+
+    # 2. CRIAR O MAPA
+    fig = px.choropleth(
+        df,
+        locations="Codigo",      # Coluna com os códigos dos países
+        color="Ano",             # A cor depende do Ano
+        hover_name="Pais",       # Nome que aparece ao passar o mouse
+        hover_data=["Descricao"], # Info extra ao passar o mouse
+        color_continuous_scale="Reds", # Escala de cor (Vermelho)
+        scope="europe",          # Focar apenas na Europa
+        title="A Propagação da Peste Negra (1347-1351)"
+    )
+
+    # 3. ESTILIZAR PARA PARECER MEDIEVAL
+    fig.update_layout(
+        height=800,
+        #width=900,
+        template="plotly_dark",
+        paper_bgcolor="#f4e4bc",   # Cor do fundo do pergaminho (fora do mapa)
+        geo=dict(
+            bgcolor="#f4e4bc",     # Cor do fundo do mapa (oceanos)
+            showlakes=False,       # Remove lagos azuis modernos
+            showocean=False,       # Remove azul do oceano
+            showcoastlines=True,   # Mostra linhas costeiras
+            coastlinecolor="#5c4a35", # Linhas marrom escuro
+            showland=True,
+            landcolor="#e6d2aa",   # Cor de terra base (bege)
+            countrycolor="#5c4a35", # Cor das fronteiras
+            projection_type="mercator" # Tipo de projeção plana
+        ),
+        font=dict(color="#3e2b18", family="Quintessential"), # Fonte medieval
+        margin={"r":0,"t":50,"l":0,"b":0} # Remove margens brancas
+    )
+
+    # Ajuste da barra de cores (legenda)
+    fig.update_coloraxes(colorbar=dict(
+        # MUDANÇA AQUI: O title agora agrupa o texto e a fonte
+        title=dict(
+            text="Ano de Chegada",
+            font=dict(color="#3e2b18")
+        ),
+        tickfont=dict(color="#3e2b18")
+    ))
+
+    # Converter para HTML
+    grafico_mapa = fig.to_html(full_html=False, include_plotlyjs="cdn")
+
+    return render_template("mapa.html", grafico=grafico_mapa)

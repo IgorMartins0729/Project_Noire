@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Letalidade por Tipo de Peste - Peste Negra{% endblock %}
+
+{% block conteudo %}
+    
+    <div class="pergaminho">
+
+        <h2 class="title-info">
+            As Três Faces da Morte
+        </h2>
+
+        <p class="description-info">
+            A <i>Yersinia pestis</i> se manifestava de três formas distintas, dependendo de como a bactéria entrava no organismo. A chance de sobrevivência variava de "pouca" para "nenhuma".
+        </p>
+
+        <div class="cards-container">
+
+            <div class="card-peste">
+                <h3>Peste Bubônica</h3>
+                <p class="subtitulo">A mais comum</p>
+                <p class="desc">
+                    Transmitida pela picada de pulgas infectadas. Causava inchaços dolorosos (bubões) no pescoço, axilas e virilha.
+                </p>
+                
+                <div class="stats-box">
+                    <span>Mortalidade: <strong>60%</strong></span>
+                    <div class="barra-mortalidade">
+                        <div class="nivel" style="width: 60%; background-color: #d35400;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-peste">
+                <h3>Peste Pneumônica</h3>
+                <p class="subtitulo">Transmissão Aérea</p>
+                <p class="desc">
+                    Atingia os pulmões. Transmitida pela tosse ou espirro de infectados (gotículas). Matava em 2 ou 3 dias.
+                </p>
+
+                <div class="stats-box">
+                    <span>Mortalidade: <strong>95%</strong></span>
+                    <div class="barra-mortalidade">
+                        <div class="nivel" style="width: 95%; background-color: #c0392b;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-peste">
+                <h3>Peste Septicêmica</h3>
+                <p class="subtitulo">Infecção no Sangue</p>
+                <p class="desc">
+                    A bactéria caía direto na corrente sanguínea. A pele ficava escura e necrosada (daí o nome "Peste Negra").
+                </p>
+
+                <div class="stats-box">
+                    <span>Mortalidade: <strong>100%</strong></span>
+                    <div class="barra-mortalidade">
+                        <div class="nivel" style="width: 100%; background-color: #000;"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <p class="description-info" style="margin-top: 30px; text-align: center; font-size: 0.9rem;">
+            *Taxas estimadas para a época, sem tratamento com antibióticos.
+        </p>
+
+    </div>
+
+{% endblock %}
